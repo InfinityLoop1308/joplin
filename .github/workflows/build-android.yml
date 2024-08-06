@@ -38,3 +38,8 @@ jobs:
           sed -i -- 's/signingConfig signingConfigs.release/signingConfig signingConfigs.debug/' app/build.gradle
           ./gradlew assembleRelease
           
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-apk
+          path: packages/app-mobile/android/app/build/outputs/apk/release/*.apk
